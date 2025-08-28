@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.build/
+.env
+codejudge.sqlite
+frontend/node_modules/
+server/node_modules/
+pyservice/.venv/
+.vscode/
+.DS_Store
