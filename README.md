@@ -9,7 +9,7 @@ Features
 
 Tech stack
 - Frontend: Next.js (React), Chart.js
-- Backend: Node.js + Express, SQLite (`better-sqlite3`)
+- Backend: Node.js + Express, SQLite (uses `sqlite3`) or Postgres in production
 - Auth: JWT, password hashing with `bcrypt`
 
 Quick start (local)
@@ -76,6 +76,20 @@ Day 1 scaffold.
 
 Vercel quick steps
 1. Push repo to GitHub.
-2. Import repository on Vercel: https://vercel.com/new/clone?repository-url=https://github.com/NamishM123/Codejudge&project-name=codejudge
+2. Import repository on Vercel: https://vercel.com/new/clone?repository-url=https://github.com/NamishM123/Codejudge&project-name=codejudge (choose branch `vercel-ready` and Root Directory `frontend`).
 3. In Vercel project settings add `JWT_SECRET` and `DATABASE_URL` (if using Postgres). If you set `DATABASE_URL`, the app will run migrations automatically on first request.
+
+CI / GitHub Actions Vercel deploy
+
+- A GitHub Actions workflow is included at `.github/workflows/vercel-deploy.yml` that deploys the `frontend` folder to Vercel when the `vercel-ready` branch is pushed or when manually triggered.
+- Required repository secrets (Repository Settings → Secrets → Actions):
+  - `VERCEL_TOKEN` — a Vercel personal token (see Vercel Dashboard → Account Settings → Tokens)
+  - `VERCEL_ORG_ID` — your Vercel Organization ID
+  - `VERCEL_PROJECT_ID` — the Vercel Project ID for this project
+
+To obtain `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`:
+1. Create (or import) the project in Vercel via the import flow.
+2. Open the project in Vercel and go to Settings → General → Git; the Project ID is visible there. The Org ID appears in the URL or in your account settings.
+
+After adding those secrets, pushing to `vercel-ready` will trigger the workflow and deploy the `frontend` to Vercel.
 
