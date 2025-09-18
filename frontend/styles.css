@@ -1,0 +1,7 @@
+body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; padding: 0; background: #f7fafc; color: #0f172a }
+.container { max-width: 900px; margin: 32px auto; padding: 16px; }
+.card { background: white; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(2,6,23,0.08); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-row { margin-bottom: 8px; }
+input, select { padding: 8px; width: 100%; box-sizing: border-box; }
+button { padding: 8px 12px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer }
